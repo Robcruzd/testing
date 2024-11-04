@@ -38,6 +38,7 @@ public class SecurityConfiguration {
         // @formatter:off
         http
             .csrf(csrf -> csrf
+                .ignoringRequestMatchers("/h2-console/**")
                 .disable())
             .headers()
                 .contentSecurityPolicy(jHipsterProperties.getSecurity().getContentSecurityPolicy())
@@ -57,6 +58,7 @@ public class SecurityConfiguration {
             .requestMatchers("/content/**").permitAll()
             .requestMatchers("/swagger-ui/**").permitAll()
             .requestMatchers("/test/**").permitAll()
+            .requestMatchers("/h2-console/**").permitAll()
             .requestMatchers(HttpMethod.POST, "/api/authenticate").permitAll()
             .requestMatchers(HttpMethod.GET, "/api/authenticate").permitAll()
             .requestMatchers("/api/register").permitAll()

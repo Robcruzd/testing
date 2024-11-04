@@ -1,7 +1,13 @@
+sourceSets {
+    test {
+        java {
+            exclude 'co/javeriana/testing//config/PostgreSqlTestContainer.java'
+        }
+    }
+}
 dependencies {
     developmentOnly "org.springframework.boot:spring-boot-devtools:${springBootVersion}"
-    implementation "org.postgresql:postgresql"
-    liquibaseRuntime "org.postgresql:postgresql"
+    implementation "com.h2database:h2"
     testImplementation "org.testcontainers:postgresql"
 }
 

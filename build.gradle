@@ -123,8 +123,8 @@ project.ext.diffChangelogFile = "src/main/resources/config/liquibase/changelog/"
 liquibase {
     activities {
         main {
-            driver "org.postgresql.Driver"
-            url "jdbc:postgresql://localhost:5432/testing"
+            driver "org.h2.Driver"
+            url "jdbc:h2:file:./build/h2db/db/testing"
             username "testing"
             password ""
             changeLogFile "src/main/resources/config/liquibase/master.xml"
@@ -133,12 +133,12 @@ liquibase {
             classpath "src/main/resources/"
         }
         diffLog {
-            driver "org.postgresql.Driver"
-            url "jdbc:postgresql://localhost:5432/testing"
+            driver "org.h2.Driver"
+            url "jdbc:h2:file:./build/h2db/db/testing"
             username "testing"
             password ""
             changeLogFile project.ext.diffChangelogFile
-            referenceUrl "hibernate:spring:co.javeriana.testing.domain?dialect=org.hibernate.dialect.PostgreSQLDialect&hibernate.physical_naming_strategy=org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"
+            referenceUrl "hibernate:spring:co.javeriana.testing.domain?dialect=org.hibernate.dialect.H2Dialect&hibernate.physical_naming_strategy=org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"
             defaultSchemaName ""
             logLevel "debug"
             classpath "$buildDir/classes/java/main"
