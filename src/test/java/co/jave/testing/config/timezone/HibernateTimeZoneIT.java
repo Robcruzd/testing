@@ -44,7 +44,7 @@ class HibernateTimeZoneIT {
         dateTimeWrapper.setOffsetDateTime(OffsetDateTime.parse("2011-12-14T08:30:00.0Z"));
         dateTimeWrapper.setZonedDateTime(ZonedDateTime.parse("2011-12-14T08:30:00.0Z"));
         dateTimeWrapper.setLocalTime(LocalTime.parse("12:30:00"));
-        dateTimeWrapper.setOffsetTime(OffsetTime.parse("12:30:00+02:00"));
+        dateTimeWrapper.setOffsetTime(OffsetTime.parse("14:30:00+02:00"));
         dateTimeWrapper.setLocalDate(LocalDate.parse("2016-09-10"));
 
         dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S").withZone(ZoneId.of(zoneId));
