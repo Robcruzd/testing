@@ -23,7 +23,7 @@
             "customWebpackConfig": {
               "path": "./webpack/webpack.custom.js"
             },
-            "outputPath": "target/classes/static/",
+            "outputPath": "build/resources/main/static/",
             "index": "src/main/webapp/index.html",
             "main": "src/main/webapp/main.ts",
             "polyfills": ["zone.js"],
@@ -101,7 +101,7 @@
   "cli": {
     "cache": {
       "enabled": true,
-      "path": "./target/angular/",
+      "path": "./build/angular/",
       "environment": "all"
     },
     "packageManager": "npm"
