@@ -30,6 +30,13 @@ jobs:
           java-version: 17
       - name: Install node.js packages
         run: npm install
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
       - name: Run backend test
         run: |
           chmod +x mvnw
