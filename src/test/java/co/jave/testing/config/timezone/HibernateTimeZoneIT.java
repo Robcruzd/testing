@@ -130,7 +130,7 @@ class HibernateTimeZoneIT {
             .getOffsetTime()
             .toLocalTime()
             .atDate(LocalDate.of(1970, Month.JANUARY, 1))
-            .atZone(ZoneId.systemDefault())
+            .atZone(ZoneId.of("UTC"))
             .format(timeFormatter);
 
         assertThatDateStoredValueIsEqualToInsertDateValueOnGMTTimeZone(resultSet, expectedValue);
