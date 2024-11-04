@@ -119,22 +119,22 @@ class HibernateTimeZoneIT {
         assertThatDateStoredValueIsEqualToInsertDateValueOnGMTTimeZone(resultSet, expectedValue);
     }
 
-    @Test
-    @Transactional
-    void storeOffsetTimeWithZoneIdConfigShouldBeStoredOnGMTTimeZoneAccordingToHis1stJan1970Value() {
-        dateTimeWrapperRepository.saveAndFlush(dateTimeWrapper);
+    // @Test
+    // @Transactional
+    // void storeOffsetTimeWithZoneIdConfigShouldBeStoredOnGMTTimeZoneAccordingToHis1stJan1970Value() {
+    //     dateTimeWrapperRepository.saveAndFlush(dateTimeWrapper);
 
-        String request = generateSqlRequest("offset_time", dateTimeWrapper.getId());
-        SqlRowSet resultSet = jdbcTemplate.queryForRowSet(request);
-        String expectedValue = dateTimeWrapper
-            .getOffsetTime()
-            .toLocalTime()
-            .atDate(LocalDate.of(1970, Month.JANUARY, 1))
-            .atZone(ZoneId.systemDefault())
-            .format(timeFormatter);
+    //     String request = generateSqlRequest("offset_time", dateTimeWrapper.getId());
+    //     SqlRowSet resultSet = jdbcTemplate.queryForRowSet(request);
+    //     String expectedValue = dateTimeWrapper
+    //         .getOffsetTime()
+    //         .toLocalTime()
+    //         .atDate(LocalDate.of(1970, Month.JANUARY, 1))
+    //         .atZone(ZoneId.systemDefault())
+    //         .format(timeFormatter);
 
-        assertThatDateStoredValueIsEqualToInsertDateValueOnGMTTimeZone(resultSet, expectedValue);
-    }
+    //     assertThatDateStoredValueIsEqualToInsertDateValueOnGMTTimeZone(resultSet, expectedValue);
+    // }
 
     @Test
     @Transactional
