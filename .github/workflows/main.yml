@@ -14,12 +14,6 @@ env:
   NG_CLI_ANALYTICS: false
   TAG: ${{ github.run_number }}
 jobs:
-  validation:
-    name: 'Gradle Wrapper Validation'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: gradle/wrapper-validation-action@v1
   test:
     name: testing test
     runs-on: ubuntu-latest
@@ -38,7 +32,7 @@ jobs:
         run: npm install
       - name: Run backend test
         run: |
-          chmod +x gradlew
+          chmod +x mvnw
           npm run ci:backend:test
       - name: Run frontend test
         run: npm run ci:frontend:test
@@ -61,6 +55,6 @@ jobs:
           username: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
           password: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
       - name: Permissions to mvnw
-        run: chmod +x gradlew
+        run: chmod +x mvnw
       - name: Build and package the application
-        run: ./gradlew jib -Pprod -Djib.to.image=${{ secrets.CONTAINER_REGISTRY }}/${{ secrets.IMAGE_REPOSITORY }}:${{ env.TAG }}
+        run: ./mvnw package -Pprod verify jib:build -Djib.to.image=${{ secrets.CONTAINER_REGISTRY }}/${{ secrets.IMAGE_REPOSITORY }}:${{ env.TAG }}

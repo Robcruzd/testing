@@ -17,7 +17,7 @@ logging:
   level:
     ROOT: INFO
     tech.jhipster: INFO
-    co.javeriana.testing: INFO
+    co.jave.testing: INFO
 
 management:
   prometheus:
@@ -99,7 +99,7 @@ jhipster:
         # - In the JHipster Registry (which includes a Spring Cloud Config server)
         # - In a separate `application-prod.yml` file, in the same folder as your executable JAR file
         # - In the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET` environment variable
-        base64-secret: NTNmYmNlNWNiNmQyZDkyMjc0NmVlYWE3MmU2ZjNlMDBjNjI1Y2QxZTUyMzAxZDBjYzA5NzE0YzJhMzk0MDNlMzNmMWZjYTAwMWViNjg0NTNiNTY1YTA3NTY3OWE5NDE3ZmJiZDU2MmFmYWM5ZGUyZDJjNmEyYjcxODliYmNhYWU=
+        base64-secret: NDhjZGIxY2YxNjgxNTczY2YxYjczMzgyYTZkY2E5ZTkxNjhlNzc3ZGY0MzU4ZjRmNWRiODMwOTMzY2Q0NTk1NDA4YTMyZWVjMzIxNWE0ZjdkYmI1OTZhM2E3YTUzNDk1Y2Q4YTM1YWZlZjNjZjc3OWNlNDQwM2U5ODVhMDhmYmY=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000

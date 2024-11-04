@@ -1,1 +1,1 @@
-org.springframework.test.context.ContextCustomizerFactory = co.javeriana.testing.config.TestContainersSpringContextCustomizerFactory
+org.springframework.test.context.ContextCustomizerFactory = co.jave.testing.config.TestContainersSpringContextCustomizerFactory
