@@ -72,7 +72,7 @@ jobs:
       - name: Login Azure
         uses: azure/login@v1
         with:
-          publish-profile: ${{ secrets.CREDS_AZURE_APP }}
+          creds: ${{ secrets.CREDS_AZURE_APP }}
       - name: Azure Web App on Container Deploy
         uses: azure/webapps-deploy@v2
         with:
