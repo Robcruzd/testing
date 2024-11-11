@@ -75,5 +75,3 @@ jobs:
           publish-profile: ${{ secrets.CREDS_AZURE_APP }}
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
           images: ${{ secrets.CONTAINER_REGISTRY }}/${{ secrets.IMAGE_REPOSITORY }}:${{ env.TAG }}
-      - name: Azure logout
-        run: az logout
