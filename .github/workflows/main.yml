@@ -69,14 +69,10 @@ jobs:
     needs: deliver
     runs-on: ubuntu-latest
     steps:
-      - name: Login Azure
-        uses: azure/login@v1
-        with:
-          auth-type: PUBLISH_PROFILE
-          publish-profile: ${{ secrets.CREDS_AZURE_APP }}
       - name: Azure Web App on Container Deploy
         uses: azure/webapps-deploy@v2
         with:
+          publish-profile: ${{ secrets.CREDS_AZURE_APP }}
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
           images: ${{ secrets.CONTAINER_REGISTRY }}/${{ secrets.IMAGE_REPOSITORY }}:${{ env.TAG }}
       - name: Azure logout
